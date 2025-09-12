@@ -12,14 +12,32 @@ public class libro
     {
         return $"{titulo} by {autor}, {anio}";
     }
+}
 
+public class Usuario
+{
+    public string Nombre { get; set; }
+    public string Identificacion { get; set; }
+    public string Email { get; set; }
 
+    public Usuario(string nombre, string identificacion, string email)
+    {
+        Nombre = nombre;
+        Identificacion = identificacion;
+        Email = email;
+    }
+
+    public void MostrarInfo()
+    {
+        Console.WriteLine($"Nombre: {Nombre}, Identificacion: {Identificacion}, Email: {Email}");
+    }
 }
 class BibliotecaServicios
 {
     static void Main()
     {
         List<libro> libros = new List<libro>();
+        List<Usuario> Usuarios = new List<Usuario>();
 
         string opcion;
 
@@ -74,7 +92,44 @@ class BibliotecaServicios
 
 
                 case "2":
+                    
+                    Console.WriteLine("\n--- GESTION DE USUARIOS ---");
+                    Console.WriteLine("1. Registrar usuario");
+                    Console.WriteLine("2. Listar usuarios");
+                    Console.Write("Selecciona una opcion: ");
+                    opcion = Console.ReadLine();
 
+                    if (opcion == "1")
+                    {
+                        Console.Write("Ingrese el nombre del usuario: ");
+                        string nombre = Console.ReadLine();
+                        Console.Write("Ingrese la identificacion del usuario: ");
+                        string identificacion = Console.ReadLine();
+                        Console.Write("Ingrese el correo electronico del usuario: ");
+                        string email = Console.ReadLine();
+
+                        Usuarios.Add(new Usuario(nombre, identificacion, email));
+                        Console.WriteLine("Usuario registrado exitosamente.");
+                    }
+                    else if (opcion == "2")
+                    {
+                        Console.WriteLine("\n--- LISTA DE USUARIOS ---");
+                        if (Usuarios.Count == 0)
+                        {
+                            Console.WriteLine("No hay usuarios registrados.");
+                        }
+                        else
+                        {
+                            foreach (Usuario u in Usuarios)
+                            {
+                                u.MostrarInfo();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opcion no valida en gestion de usuarios.");
+                    }
                     break;
 
                 case "3":
