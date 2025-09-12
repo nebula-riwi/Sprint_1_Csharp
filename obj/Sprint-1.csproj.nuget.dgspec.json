@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jfroj\\source\\repos\\Sprint_1_Csharp\\Sprint-1.csproj": {}
+    "C:\\Users\\jeror\\OneDrive\\Desktop\\RIWI\\C#\\Sprint_1_Csharp\\Sprint-1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jfroj\\source\\repos\\Sprint_1_Csharp\\Sprint-1.csproj": {
+    "C:\\Users\\jeror\\OneDrive\\Desktop\\RIWI\\C#\\Sprint_1_Csharp\\Sprint-1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jfroj\\source\\repos\\Sprint_1_Csharp\\Sprint-1.csproj",
+        "projectUniqueName": "C:\\Users\\jeror\\OneDrive\\Desktop\\RIWI\\C#\\Sprint_1_Csharp\\Sprint-1.csproj",
         "projectName": "Sprint-1",
-        "projectPath": "C:\\Users\\jfroj\\source\\repos\\Sprint_1_Csharp\\Sprint-1.csproj",
-        "packagesPath": "C:\\Users\\jfroj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jfroj\\source\\repos\\Sprint_1_Csharp\\obj\\",
+        "projectPath": "C:\\Users\\jeror\\OneDrive\\Desktop\\RIWI\\C#\\Sprint_1_Csharp\\Sprint-1.csproj",
+        "packagesPath": "C:\\Users\\jeror\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jeror\\OneDrive\\Desktop\\RIWI\\C#\\Sprint_1_Csharp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jfroj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jeror\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
