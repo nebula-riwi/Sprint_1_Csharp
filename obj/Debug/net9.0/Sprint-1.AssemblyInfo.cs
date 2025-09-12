@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sprint-1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d17e02365a85e4c94047380e427d0f1508f179c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0c28915bed6ffbed4974e8dbb5448653e0f0bfb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sprint-1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sprint-1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
