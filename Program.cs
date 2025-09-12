@@ -7,10 +7,11 @@ public class libro
     public string titulo { get; set; }
     public string autor { get; set; }
     public int anio { get; set; }
-
+    public bool disponible { get; set; } = true;
+    public string categoria { get; set; }
     public override string ToString()
     {
-        return $"{titulo} De {autor} Fecha de publicacion: {anio}";
+        return $"{titulo} de {autor} ({anio}) - Categoria: {categoria} - {(disponible ? "Disponible" : "No Disponible")}";
     }
 
 
@@ -37,79 +38,81 @@ class BibliotecaServicios
 
             switch (opcion)
             {
-                case "1":
-                    while (true)
+            case "1":
+                while (true)
+                {
+                    Console.WriteLine("\nLIBROS");
+                    Console.WriteLine("1. Registrar libro");
+                    Console.WriteLine("2. Listar libros");
+                    Console.WriteLine("3. Buscar libro");
+                    Console.WriteLine("4. Ir al menu principal");
+                    Console.Write("Selecciona una opción: ");
+                    subOpcion = Console.ReadLine();
+            
+                    if (subOpcion == "1")
                     {
-                        Console.WriteLine("\nLIBROS");
-                        Console.WriteLine("1. Registrar libro");
-                        Console.WriteLine("2. Listar libros");
-                        Console.WriteLine("3. Buscar libro");
-                        Console.WriteLine("4. Ir al menu principal");
-                        Console.Write("Selecciona una opción: ");
-                        string subOpcion = Console.ReadLine();
-
-                        if (subOpcion == "1")
+            
+                        Console.Write("Ingrese el título del libro: ");
+                        string titulo = Console.ReadLine();
+                        Console.Write("Ingrese el autor del libro: ");
+                        string autor = Console.ReadLine();
+                        Console.Write("Ingrese el año de publicación: ");
+                        int anio = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese la categoria del libro: ");
+                        string categoria = Console.ReadLine();
+                       
+            
+                        libros.Add(new libro { titulo = titulo, autor = autor, anio = anio, categoria = categoria });
+                        Console.WriteLine($"Libro '{titulo}' de {autor} ({anio}) registrado exitosamente.");
+                    }
+                    else if (subOpcion == "2")
+                    {
+                        if (libros.Count == 0)
                         {
-
-                            Console.Write("Ingrese el título del libro: ");
-                            string titulo = Console.ReadLine();
-                            Console.Write("Ingrese el autor del libro: ");
-                            string autor = Console.ReadLine();
-                            Console.Write("Ingrese el año de publicación: ");
-                            int anio = int.Parse(Console.ReadLine());
-
-                            libros.Add(new libro { titulo = titulo, autor = autor, anio = anio });
-                            Console.WriteLine($"Libro '{titulo}' de {autor} ({anio}) registrado exitosamente.");
-                        }
-                        else if (subOpcion == "2")
-                        {
-                            if (libros.Count == 0)
-                            {
-                                Console.WriteLine("No hay libros registrados.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("\nLISTADO DE LIBROS");
-                                foreach (var l in libros)
-                                {
-                                    Console.WriteLine(l);
-                                }
-                            }
-                        }
-                        else if (subOpcion == "3")
-                        {
-                            Console.Write("Ingrese el título del libro a buscar: ");
-                            string tituloBuscar = Console.ReadLine();
-
-                            var encontrados = libros
-                                .Where(l => l.titulo.Equals(tituloBuscar, StringComparison.OrdinalIgnoreCase))
-                                .ToList();
-
-                            if (encontrados.Count == 0)
-                            {
-                                Console.WriteLine("No se encontró el libro.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("\nRESULTADOS");
-                                foreach (var l in encontrados)
-                                {
-                                    Console.WriteLine(l);
-                                }
-                            }
-                        }
-                        else if (subOpcion == "4")
-                        {
-                            Console.Write("Saliendo al menu principal ");
-                            break;
+                            Console.WriteLine("No hay libros registrados.");
                         }
                         else
                         {
-                            Console.WriteLine("Opción no válida en gestión de libros.");
+                            Console.WriteLine("\nLISTADO DE LIBROS");
+                            foreach (var l in libros)
+                            {
+                                Console.WriteLine(l);
+                            }
                         }
                     }
-                    break;
-
+                    else if (subOpcion == "3")
+                    {
+                        Console.Write("Ingrese el título del libro a buscar: ");
+                        string tituloBuscar = Console.ReadLine();
+            
+                        var encontrados = libros
+                            .Where(l => l.titulo.Equals(tituloBuscar, StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+            
+                        if (encontrados.Count == 0)
+                        {
+                            Console.WriteLine("No se encontró el libro.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nRESULTADOS");
+                            foreach (var l in encontrados)
+                            {
+                                Console.WriteLine(l);
+                            }
+                        }
+                    }
+                    else if (subOpcion == "4")
+                    {
+                        Console.Write("Saliendo al menu principal ");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida en gestión de libros.");
+                    }
+                }
+                break;
                 case "2":
 
                     break;
@@ -134,3 +137,4 @@ class BibliotecaServicios
         } while (opcion != "5");
     }
 }
+
