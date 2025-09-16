@@ -7,8 +7,13 @@ public class libro
     public string titulo { get; set; }
     public string autor { get; set; }
     public int anio { get; set; }
+
+    public List<double> Calificaciones { get; set; } = new List<double>();
+
+
     public bool disponible { get; set; } = true;
     public string categoria { get; set; }
+
     public override string ToString()
     {
         return $"{titulo} de {autor} ({anio}) - Categoria: {categoria} - {(disponible ? "Disponible" : "No Disponible")}";
@@ -177,7 +182,66 @@ class BibliotecaServicios
                     break;
 
                 case "4":
+                    Console.WriteLine("\n--- RESEÑAS Y CALIFICACIONES ---");
+                    Console.WriteLine("1. Calificar un libro");
+                    Console.WriteLine("2. Ver calificación promedio de un libro");
+                    Console.Write("Selecciona una opción: ");
+                    string subOpcionResena = Console.ReadLine();
 
+                    if (subOpcionResena == "1")
+                    {
+                        Console.Write("Ingrese el título del libro a calificar: ");
+                        string tituloCalificar = Console.ReadLine();
+
+                        // Buscamos el libro
+                        libro libroACalificar = libros.FirstOrDefault(l => l.titulo.Equals(tituloCalificar, StringComparison.OrdinalIgnoreCase));
+
+                        if (libroACalificar == null)
+                        {
+                            Console.WriteLine("No se encontró el libro.");
+                        }
+                        else
+                        {
+                            Console.Write("Ingrese la calificación (de 0.0 a 5.0): ");
+                            if (double.TryParse(Console.ReadLine(), out double calificacion) && calificacion >= 0.0 && calificacion <= 5.0)
+                            {
+                                libroACalificar.Calificaciones.Add(calificacion);
+                                Console.WriteLine("¡Calificación agregada exitosamente!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Calificación no válida. Debe ser un número entre 0.0 y 5.0.");
+                            }
+                        }
+                    }
+                    else if (subOpcionResena == "2")
+                    {
+                        Console.Write("Ingrese el título del libro para ver su calificación: ");
+                        string tituloConsulta = Console.ReadLine();
+
+                        libro libroConsultado = libros.FirstOrDefault(l => l.titulo.Equals(tituloConsulta, StringComparison.OrdinalIgnoreCase));
+
+                        if (libroConsultado == null)
+                        {
+                            Console.WriteLine("No se encontró el libro.");
+                        }
+                        else
+                        {
+                            if (libroConsultado.Calificaciones.Count == 0)
+                            {
+                                Console.WriteLine("Este libro aún no tiene calificaciones.");
+                            }
+                            else
+                            {
+                                double promedio = libroConsultado.Calificaciones.Average();
+                                Console.WriteLine($"La calificación promedio de '{libroConsultado.titulo}' es: {promedio:F1} / 5.0");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida.");
+                    }
                     break;
 
                 case "5":
